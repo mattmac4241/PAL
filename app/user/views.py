@@ -1,4 +1,5 @@
 from app.models import User
+from app import app
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
