@@ -1,7 +1,10 @@
-from app.models import User
-from app import app
+from app.models import User,Blueprint
 
-@app.route("/", methods=['GET', 'POST'])
+users_blueprint = Blueprint('users',__name__)
+
+
+
+@users_blueprint.route("/", methods=['GET', 'POST'])
 def main():
     """Respond to incoming calls with a simple text message."""
  	from_number = request.values.get('From', None)
