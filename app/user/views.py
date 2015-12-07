@@ -11,7 +11,7 @@ def main():
     user = User.query.filter_by(phone_number=from_number).first()
     if user == None:
         resp = twilio.twiml.Response()
-            resp.message("Hello my name is PAL, it is nice to meet you!"
+        resp.message("Hello my name is PAL, it is nice to meet you!"
         return str(resp)
 
     '''resp = twilio.twiml.Response()
