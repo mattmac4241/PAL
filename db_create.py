@@ -1,5 +1,4 @@
-
-from app import db
+from app.database import db
 from sqlalchemy.orm.mapper import configure_mappers
 
 # create the database and the db table
@@ -10,4 +9,3 @@ configure_mappers()
 
 # commit the changes
 db.session.commit()
-

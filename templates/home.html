@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>Welcome to Pal</h1>
+    <form method="POST" action="/register" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+      <p>
+        {{ form.zip_code(placeholder="zip code") }}
+        {% if form.zip_code.errors %}
+          <span class="error">
+            {% for error in form.zip_code.errors %}
+              {{ error }}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+      <p>
+        {{ form.phone_number(placeholder="phone number") }}
+        {% if form.phone_number.errors %}
+          <span class="error">
+            {% for error in form.phone_number.errors %}
+              {{ error }}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+      <p>
+        {{ form.name(placeholder="name") }}
+        {% if form.name.errors %}
+          <span class="error">
+            {% for error in form.name.errors %}
+              {{ error }}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+      <button class="btn btn-sm btn-success" type="submit">Register</button>
+      <br>
+  </form>
+</body>
+</html>
