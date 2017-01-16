@@ -1,5 +1,5 @@
+from app.commands.commands import CommandManager
 from app.models import User
-from app.weather import Weather
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from twilio import twiml
 
@@ -33,14 +33,13 @@ def register():
 def text():
     """Respond to incoming calls with a simple text message."""
     from_number = request.values.get('From', None)
-    print from_number
+    message = request.values.get('Body', None)
     user = User.query.filter_by(phone_number=from_number).first()
-    print user
     resp = twiml.Response()
     if user is None:
         resp.message("Hello my name is PAL, it is nice to meet you!")
     else:
-        weather = Weather(user.zip_code)
-        message = weather.proccess_command()
+        command = CommandManager(user.zip_code)
+        message = command.proccess_command(message)
         resp.message(message)
     return str(resp)
