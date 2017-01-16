@@ -5,7 +5,7 @@
     <h1>Welcome to Pal</h1>
     <form method="POST" action="/register" enctype="multipart/form-data">
       {{ form.csrf_token }}
-      <p>
+      <div>
         {{ form.zip_code(placeholder="zip code") }}
         {% if form.zip_code.errors %}
           <span class="error">
@@ -14,8 +14,8 @@
             {% endfor %}
           </span>
         {% endif %}
-      </p>
-      <p>
+      </div>
+      <div>
         {{ form.phone_number(placeholder="phone number") }}
         {% if form.phone_number.errors %}
           <span class="error">
@@ -24,8 +24,8 @@
             {% endfor %}
           </span>
         {% endif %}
-      </p>
-      <p>
+      </div>
+      <div>
         {{ form.name(placeholder="name") }}
         {% if form.name.errors %}
           <span class="error">
@@ -34,7 +34,7 @@
             {% endfor %}
           </span>
         {% endif %}
-      </p>
+      </div>
       <button class="btn btn-sm btn-success" type="submit">Register</button>
       <br>
   </form>
