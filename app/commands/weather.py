@@ -45,12 +45,6 @@ class Weather(object):
     def get_current_humidity(self, data):
         return 'With %s humidity' % data['relative_humidity']
 
-    def valid_zip_code(self):
-        url = URL + '/geolookup/q/%s.json' % self.zip_code
-        req = requests.get(url)
-        data = req.text
-        return 'error' in data
-
     def get_commands(self):
         return {
             'get current weather': self.get_current_text,
